@@ -1,0 +1,4 @@
+{
+  "rewrites": [{ "source": "/", "destination": "/DonaFlip_Guia.html" }],
+  "public": true
+}
