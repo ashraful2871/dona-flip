@@ -1,557 +1,680 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Doña Flip — Tu Guía de Bienes Raíces</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doña Flip — Tu Guía de Bienes Raíces</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      /* fkuhisdgviulululruo */
+      :root {
+        --purple: #2d1b6b;
+        --purple-mid: #3d2090;
+        --yellow: #ffd600;
+        --white: #ffffff;
+        --off-white: #f9f7ff;
+        --text: #1a1a2e;
+        --text-soft: #555;
+        --card-border: rgba(45, 27, 107, 0.12);
+        --radius: 20px;
+      }
 
-  :root {
-    --purple: #2D1B6B;
-    --purple-mid: #3D2090;
-    --yellow: #FFD600;
-    --white: #ffffff;
-    --off-white: #F9F7FF;
-    --text: #1a1a2e;
-    --text-soft: #555;
-    --card-border: rgba(45,27,107,0.12);
-    --radius: 20px;
-  }
+      body {
+        font-family: "Nunito", sans-serif;
+        background: var(--off-white);
+        color: var(--text);
+        line-height: 1.5;
+      }
 
-  body {
-    font-family: 'Nunito', sans-serif;
-    background: var(--off-white);
-    color: var(--text);
-    line-height: 1.5;
-  }
+      /* ── HERO ── */
+      .hero {
+        background: var(--purple);
+        text-align: center;
+        padding: 50px 24px 60px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at 50% 0%,
+          rgba(255, 214, 0, 0.12) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero-badge {
+        display: inline-block;
+        background: var(--yellow);
+        color: var(--purple);
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        letter-spacing: 4px;
+        padding: 12px 32px;
+        border-radius: 50px;
+        margin-bottom: 22px;
+        box-shadow: 0 4px 24px rgba(255, 214, 0, 0.35);
+      }
+      .hero h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(3.5rem, 10vw, 6rem);
+        color: var(--yellow);
+        letter-spacing: 4px;
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+      .hero p {
+        font-size: 1.15rem;
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 520px;
+        margin: 0 auto 28px;
+        font-weight: 700;
+      }
+      .hero-sub {
+        font-size: 0.95rem !important;
+        color: rgba(255, 255, 255, 0.55) !important;
+        font-weight: 400 !important;
+        margin-top: -16px !important;
+        margin-bottom: 0 !important;
+      }
 
-  /* ── HERO ── */
-  .hero {
-    background: var(--purple);
-    text-align: center;
-    padding: 50px 24px 60px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(255,214,0,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-badge {
-    display: inline-block;
-    background: var(--yellow);
-    color: var(--purple);
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.5rem;
-    letter-spacing: 4px;
-    padding: 12px 32px;
-    border-radius: 50px;
-    margin-bottom: 22px;
-    box-shadow: 0 4px 24px rgba(255,214,0,0.35);
-  }
-  .hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3.5rem, 10vw, 6rem);
-    color: var(--yellow);
-    letter-spacing: 4px;
-    line-height: 1;
-    margin-bottom: 10px;
-  }
-  .hero p {
-    font-size: 1.15rem;
-    color: rgba(255,255,255,0.85);
-    max-width: 520px;
-    margin: 0 auto 28px;
-    font-weight: 700;
-  }
-  .hero-sub {
-    font-size: 0.95rem !important;
-    color: rgba(255,255,255,0.55) !important;
-    font-weight: 400 !important;
-    margin-top: -16px !important;
-    margin-bottom: 0 !important;
-  }
+      /* ── GOLDEN RULE BANNER ── */
+      .golden {
+        background: var(--yellow);
+        padding: 28px 24px;
+        text-align: center;
+      }
+      .golden .g-label {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.1rem;
+        letter-spacing: 3px;
+        color: var(--purple);
+        margin-bottom: 10px;
+      }
+      .golden .g-text {
+        font-size: 1.25rem;
+        font-weight: 900;
+        color: var(--purple);
+        max-width: 680px;
+        margin: 0 auto;
+        line-height: 1.4;
+      }
+      .golden .g-sub {
+        margin-top: 10px;
+        font-size: 0.95rem;
+        color: rgba(45, 27, 107, 0.7);
+        max-width: 560px;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
-  /* ── GOLDEN RULE BANNER ── */
-  .golden {
-    background: var(--yellow);
-    padding: 28px 24px;
-    text-align: center;
-  }
-  .golden .g-label {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 3px;
-    color: var(--purple);
-    margin-bottom: 10px;
-  }
-  .golden .g-text {
-    font-size: 1.25rem;
-    font-weight: 900;
-    color: var(--purple);
-    max-width: 680px;
-    margin: 0 auto;
-    line-height: 1.4;
-  }
-  .golden .g-sub {
-    margin-top: 10px;
-    font-size: 0.95rem;
-    color: rgba(45,27,107,0.7);
-    max-width: 560px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+      /* ── MAIN CONTENT ── */
+      .content {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 48px 20px 60px;
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+      }
 
-  /* ── MAIN CONTENT ── */
-  .content {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 48px 20px 60px;
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-  }
+      /* ── SECTION ── */
+      .section-label {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .section-emoji {
+        font-size: 2rem;
+        line-height: 1;
+      }
+      .section-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.8rem;
+        color: var(--purple);
+        letter-spacing: 2px;
+        line-height: 1;
+      }
+      .section-title span {
+        display: block;
+        font-family: "Nunito", sans-serif;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--text-soft);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-top: 2px;
+      }
 
-  /* ── SECTION ── */
-  .section-label {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-  }
-  .section-emoji {
-    font-size: 2rem;
-    line-height: 1;
-  }
-  .section-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.8rem;
-    color: var(--purple);
-    letter-spacing: 2px;
-    line-height: 1;
-  }
-  .section-title span {
-    display: block;
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--text-soft);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-top: 2px;
-  }
+      /* ── TIP CARDS ── */
+      .tip-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .tip-card {
+        background: var(--white);
+        border: 1.5px solid var(--card-border);
+        border-radius: var(--radius);
+        padding: 18px 22px;
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        box-shadow: 0 2px 12px rgba(45, 27, 107, 0.06);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .tip-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(45, 27, 107, 0.12);
+      }
+      .tip-icon {
+        font-size: 1.8rem;
+        line-height: 1;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .tip-text strong {
+        display: block;
+        font-size: 1rem;
+        font-weight: 900;
+        color: var(--purple);
+        margin-bottom: 3px;
+      }
+      .tip-text p {
+        font-size: 0.95rem;
+        color: var(--text-soft);
+        line-height: 1.5;
+      }
 
-  /* ── TIP CARDS ── */
-  .tip-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .tip-card {
-    background: var(--white);
-    border: 1.5px solid var(--card-border);
-    border-radius: var(--radius);
-    padding: 18px 22px;
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    box-shadow: 0 2px 12px rgba(45,27,107,0.06);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .tip-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,27,107,0.12); }
-  .tip-icon {
-    font-size: 1.8rem;
-    line-height: 1;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .tip-text strong {
-    display: block;
-    font-size: 1rem;
-    font-weight: 900;
-    color: var(--purple);
-    margin-bottom: 3px;
-  }
-  .tip-text p {
-    font-size: 0.95rem;
-    color: var(--text-soft);
-    line-height: 1.5;
-  }
+      /* ── TABLE CARDS ── */
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .col-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1.5px solid var(--card-border);
+        box-shadow: 0 2px 12px rgba(45, 27, 107, 0.06);
+      }
+      .col-card .col-hdr {
+        padding: 12px 16px;
+        font-weight: 900;
+        font-size: 0.9rem;
+        text-align: center;
+        letter-spacing: 0.5px;
+      }
+      .col-card.yes .col-hdr {
+        background: var(--purple);
+        color: var(--yellow);
+      }
+      .col-card.no .col-hdr {
+        background: #f5f5f5;
+        color: #888;
+      }
+      .col-card ul {
+        list-style: none;
+        padding: 14px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .col-card ul li {
+        font-size: 0.92rem;
+        color: var(--text-soft);
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        line-height: 1.4;
+      }
+      .col-card ul li .li-icon {
+        flex-shrink: 0;
+        font-size: 1rem;
+      }
 
-  /* ── TABLE CARDS ── */
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-  .col-card {
-    background: var(--white);
-    border-radius: var(--radius);
-    overflow: hidden;
-    border: 1.5px solid var(--card-border);
-    box-shadow: 0 2px 12px rgba(45,27,107,0.06);
-  }
-  .col-card .col-hdr {
-    padding: 12px 16px;
-    font-weight: 900;
-    font-size: 0.9rem;
-    text-align: center;
-    letter-spacing: 0.5px;
-  }
-  .col-card.yes .col-hdr { background: var(--purple); color: var(--yellow); }
-  .col-card.no  .col-hdr { background: #f5f5f5; color: #888; }
-  .col-card ul {
-    list-style: none;
-    padding: 14px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .col-card ul li {
-    font-size: 0.92rem;
-    color: var(--text-soft);
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    line-height: 1.4;
-  }
-  .col-card ul li .li-icon { flex-shrink: 0; font-size: 1rem; }
+      /* ── ZILLOW TABLE ── */
+      .zillow-table {
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1.5px solid var(--card-border);
+        box-shadow: 0 2px 12px rgba(45, 27, 107, 0.06);
+      }
+      .zt-row {
+        display: grid;
+        grid-template-columns: 110px 1fr 1fr;
+        border-bottom: 1px solid var(--card-border);
+      }
+      .zt-row:last-child {
+        border-bottom: none;
+      }
+      .zt-cell {
+        padding: 14px 16px;
+        font-size: 0.92rem;
+        color: var(--text-soft);
+        line-height: 1.4;
+        border-right: 1px solid var(--card-border);
+      }
+      .zt-cell:last-child {
+        border-right: none;
+      }
+      .zt-row.header .zt-cell {
+        background: var(--purple);
+        color: var(--yellow);
+        font-weight: 900;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-align: center;
+      }
+      .zt-row.header .zt-cell:first-child {
+        background: var(--purple);
+        color: transparent;
+      }
+      .zt-row:not(.header) .zt-cell:first-child {
+        font-weight: 900;
+        color: var(--purple);
+        font-size: 0.88rem;
+        background: var(--off-white);
+      }
+      .zt-row:nth-child(3) .zt-cell {
+        background: rgba(249, 247, 255, 0.5);
+      }
 
-  /* ── ZILLOW TABLE ── */
-  .zillow-table {
-    background: var(--white);
-    border-radius: var(--radius);
-    overflow: hidden;
-    border: 1.5px solid var(--card-border);
-    box-shadow: 0 2px 12px rgba(45,27,107,0.06);
-  }
-  .zt-row {
-    display: grid;
-    grid-template-columns: 110px 1fr 1fr;
-    border-bottom: 1px solid var(--card-border);
-  }
-  .zt-row:last-child { border-bottom: none; }
-  .zt-cell {
-    padding: 14px 16px;
-    font-size: 0.92rem;
-    color: var(--text-soft);
-    line-height: 1.4;
-    border-right: 1px solid var(--card-border);
-  }
-  .zt-cell:last-child { border-right: none; }
-  .zt-row.header .zt-cell {
-    background: var(--purple);
-    color: var(--yellow);
-    font-weight: 900;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: center;
-  }
-  .zt-row.header .zt-cell:first-child { background: var(--purple); color: transparent; }
-  .zt-row:not(.header) .zt-cell:first-child {
-    font-weight: 900;
-    color: var(--purple);
-    font-size: 0.88rem;
-    background: var(--off-white);
-  }
-  .zt-row:nth-child(3) .zt-cell { background: rgba(249,247,255,0.5); }
+      /* ── CHECKLIST ── */
+      .checklist {
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1.5px solid var(--card-border);
+        box-shadow: 0 2px 12px rgba(45, 27, 107, 0.06);
+      }
+      .checklist-hdr {
+        background: var(--purple);
+        padding: 16px 22px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .checklist-hdr span:first-child {
+        font-size: 1.5rem;
+      }
+      .checklist-hdr strong {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+        color: var(--yellow);
+      }
+      .checklist-items {
+        padding: 6px 0;
+      }
+      .check-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 22px;
+        border-bottom: 1px solid var(--card-border);
+        transition: background 0.15s;
+        cursor: pointer;
+      }
+      .check-item:last-child {
+        border-bottom: none;
+      }
+      .check-item:hover {
+        background: var(--off-white);
+      }
+      .check-item:nth-child(even) {
+        background: rgba(249, 247, 255, 0.6);
+      }
+      .check-item:nth-child(even):hover {
+        background: var(--off-white);
+      }
+      .check-box {
+        width: 24px;
+        height: 24px;
+        border: 2.5px solid var(--purple);
+        border-radius: 6px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        font-size: 0;
+      }
+      .check-item.checked .check-box {
+        background: var(--purple);
+        font-size: 0.9rem;
+      }
+      .check-item.checked .check-box::after {
+        content: "✓";
+        color: var(--yellow);
+        font-weight: 900;
+      }
+      .check-label {
+        font-size: 0.95rem;
+        color: var(--text);
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      .check-item.checked .check-label {
+        color: #aaa;
+        text-decoration: line-through;
+      }
 
-  /* ── CHECKLIST ── */
-  .checklist {
-    background: var(--white);
-    border-radius: var(--radius);
-    overflow: hidden;
-    border: 1.5px solid var(--card-border);
-    box-shadow: 0 2px 12px rgba(45,27,107,0.06);
-  }
-  .checklist-hdr {
-    background: var(--purple);
-    padding: 16px 22px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .checklist-hdr span:first-child { font-size: 1.5rem; }
-  .checklist-hdr strong {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.3rem;
-    letter-spacing: 2px;
-    color: var(--yellow);
-  }
-  .checklist-items { padding: 6px 0; }
-  .check-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 22px;
-    border-bottom: 1px solid var(--card-border);
-    transition: background 0.15s;
-    cursor: pointer;
-  }
-  .check-item:last-child { border-bottom: none; }
-  .check-item:hover { background: var(--off-white); }
-  .check-item:nth-child(even) { background: rgba(249,247,255,0.6); }
-  .check-item:nth-child(even):hover { background: var(--off-white); }
-  .check-box {
-    width: 24px; height: 24px;
-    border: 2.5px solid var(--purple);
-    border-radius: 6px;
-    flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.2s;
-    font-size: 0;
-  }
-  .check-item.checked .check-box {
-    background: var(--purple);
-    font-size: 0.9rem;
-  }
-  .check-item.checked .check-box::after { content: '✓'; color: var(--yellow); font-weight: 900; }
-  .check-label {
-    font-size: 0.95rem;
-    color: var(--text);
-    font-weight: 700;
-    line-height: 1.4;
-  }
-  .check-item.checked .check-label { color: #aaa; text-decoration: line-through; }
+      /* ── FOOTER ── */
+      footer {
+        background: var(--purple);
+        text-align: center;
+        padding: 28px 20px;
+        border-top: 4px solid var(--yellow);
+      }
+      footer .f-brand {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.6rem;
+        color: var(--yellow);
+        letter-spacing: 4px;
+        margin-bottom: 6px;
+      }
+      footer p {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      footer a {
+        color: rgba(255, 255, 255, 0.6);
+      }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--purple);
-    text-align: center;
-    padding: 28px 20px;
-    border-top: 4px solid var(--yellow);
-  }
-  footer .f-brand {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem;
-    color: var(--yellow);
-    letter-spacing: 4px;
-    margin-bottom: 6px;
-  }
-  footer p { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
-  footer a { color: rgba(255,255,255,0.6); }
+      .divider {
+        height: 3px;
+        background: linear-gradient(
+          to right,
+          var(--purple),
+          var(--yellow),
+          var(--purple)
+        );
+        border: none;
+        border-radius: 2px;
+      }
 
-  .divider {
-    height: 3px;
-    background: linear-gradient(to right, var(--purple), var(--yellow), var(--purple));
-    border: none;
-    border-radius: 2px;
-  }
-
-  @media (max-width: 520px) {
-    .two-col { grid-template-columns: 1fr; }
-    .zt-row  { grid-template-columns: 80px 1fr 1fr; }
-  }
-</style>
-</head>
-<body>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-badge">📚 GUÍA DEL CURSO</div>
-  <h1>DOÑA FLIP</h1>
-  <p>Tu hoja de referencia rápida para invertir en bienes raíces</p>
-  <p class="hero-sub">Guárdala · Imprímela · Úsala en cada negocio</p>
-</div>
-
-<!-- GOLDEN RULE -->
-<div class="golden">
-  <div class="g-label">🔑 REGLA DE ORO</div>
-  <div class="g-text">Nunca compres en Zillow — siempre ve directo al dueño</div>
-  <p class="g-sub">Usa al dueño como tu banco. Le pagas a él directamente mientras rentas o volteas la casa. Sin banco, tú pones las condiciones.</p>
-</div>
-
-<!-- MAIN -->
-<div class="content">
-
-  <!-- 1. DINERO -->
-  <section>
-    <div class="section-label">
-      <div class="section-emoji">💰</div>
-      <div class="section-title">El Dinero<span>Haz los números primero</span></div>
+      @media (max-width: 520px) {
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+        .zt-row {
+          grid-template-columns: 80px 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-badge">📚 GUÍA DEL CURSO</div>
+      <h1>DOÑA FLIP</h1>
+      <p>Tu hoja de referencia rápida para invertir en bienes raíces</p>
+      <p class="hero-sub">Guárdala · Imprímela · Úsala en cada negocio</p>
     </div>
-    <div class="tip-grid">
-      <div class="tip-card">
-        <div class="tip-icon">🧮</div>
-        <div class="tip-text">
-          <strong>¿La renta cubre la hipoteca?</strong>
-          <p>Antes de comprar, mete los números en ChatGPT o una calculadora. Si la renta no cubre el pago, el negocio no sirve.</p>
-        </div>
+
+    <!-- GOLDEN RULE -->
+    <div class="golden">
+      <div class="g-label">🔑 REGLA DE ORO</div>
+      <div class="g-text">
+        Nunca compres en Zillow — siempre ve directo al dueño
       </div>
-      <div class="tip-card">
-        <div class="tip-icon">🔍</div>
-        <div class="tip-text">
-          <strong>Revisa cuánto se renta en Zillow</strong>
-          <p>Busca propiedades similares en esa área. Así sabes el precio real del mercado antes de comprometerte.</p>
-        </div>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">🤝</div>
-        <div class="tip-text">
-          <strong>Seller Financing — el dueño es tu banco</strong>
-          <p>Le pagas directamente al dueño cada mes, sin banco, sin mucho papeleo. Tú negocias las condiciones. ¡Así funciona el juego!</p>
-        </div>
-      </div>
+      <p class="g-sub">
+        Usa al dueño como tu banco. Le pagas a él directamente mientras rentas o
+        volteas la casa. Sin banco, tú pones las condiciones.
+      </p>
     </div>
-  </section>
 
-  <hr class="divider">
+    <!-- MAIN -->
+    <div class="content">
+      <!-- 1. DINERO -->
+      <section>
+        <div class="section-label">
+          <div class="section-emoji">💰</div>
+          <div class="section-title">
+            El Dinero<span>Haz los números primero</span>
+          </div>
+        </div>
+        <div class="tip-grid">
+          <div class="tip-card">
+            <div class="tip-icon">🧮</div>
+            <div class="tip-text">
+              <strong>¿La renta cubre la hipoteca?</strong>
+              <p>
+                Antes de comprar, mete los números en ChatGPT o una calculadora.
+                Si la renta no cubre el pago, el negocio no sirve.
+              </p>
+            </div>
+          </div>
+          <div class="tip-card">
+            <div class="tip-icon">🔍</div>
+            <div class="tip-text">
+              <strong>Revisa cuánto se renta en Zillow</strong>
+              <p>
+                Busca propiedades similares en esa área. Así sabes el precio
+                real del mercado antes de comprometerte.
+              </p>
+            </div>
+          </div>
+          <div class="tip-card">
+            <div class="tip-icon">🤝</div>
+            <div class="tip-text">
+              <strong>Seller Financing — el dueño es tu banco</strong>
+              <p>
+                Le pagas directamente al dueño cada mes, sin banco, sin mucho
+                papeleo. Tú negocias las condiciones. ¡Así funciona el juego!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <!-- 2. RENOVACIONES -->
-  <section>
-    <div class="section-label">
-      <div class="section-emoji">🔨</div>
-      <div class="section-title">Renovaciones<span>Gasta solo en lo que importa</span></div>
+      <hr class="divider" />
+
+      <!-- 2. RENOVACIONES -->
+      <section>
+        <div class="section-label">
+          <div class="section-emoji">🔨</div>
+          <div class="section-title">
+            Renovaciones<span>Gasta solo en lo que importa</span>
+          </div>
+        </div>
+        <div class="two-col">
+          <div class="col-card yes">
+            <div class="col-hdr">✅ SÍ INVIERTE AQUÍ</div>
+            <ul>
+              <li><span class="li-icon">🪵</span> Pisos nuevos</li>
+              <li><span class="li-icon">🎨</span> Pintura fresca</li>
+              <li><span class="li-icon">🍳</span> Aparatos nuevos</li>
+              <li><span class="li-icon">🍽️</span> Cocina presentable</li>
+              <li><span class="li-icon">🚿</span> Baño limpio y bonito</li>
+              <li><span class="li-icon">🪟</span> Ventanas nuevas</li>
+            </ul>
+          </div>
+          <div class="col-card no">
+            <div class="col-hdr">❌ NO GASTES AQUÍ</div>
+            <ul>
+              <li><span class="li-icon">🏚️</span> Cambios en el exterior</li>
+              <li><span class="li-icon">🔧</span> Cambiar la estructura</li>
+              <li><span class="li-icon">💎</span> Lujos innecesarios</li>
+              <li><span class="li-icon">🌳</span> Jardín muy elaborado</li>
+              <li><span class="li-icon">🖼️</span> Decoración personalizada</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- 3. TRABAJADORES -->
+      <section>
+        <div class="section-label">
+          <div class="section-emoji">👷</div>
+          <div class="section-title">
+            Trabajadores<span>Encuéntralos y cuídalos</span>
+          </div>
+        </div>
+        <div class="tip-grid">
+          <div class="tip-card">
+            <div class="tip-icon">📋</div>
+            <div class="tip-text">
+              <strong>Pide varios presupuestos</strong>
+              <p>
+                Habla con varios trabajadores antes de contratar. Así conoces el
+                precio real y nadie te cobra de más.
+              </p>
+            </div>
+          </div>
+          <div class="tip-card">
+            <div class="tip-icon">🤜</div>
+            <div class="tip-text">
+              <strong>¡No lo sueltes!</strong>
+              <p>
+                Cuando encuentres un buen trabajador, mantenlo ocupado con tus
+                proyectos. Los buenos son difíciles de encontrar.
+              </p>
+            </div>
+          </div>
+          <div class="tip-card">
+            <div class="tip-icon">💬</div>
+            <div class="tip-text">
+              <strong>El boca a boca es lo mejor</strong>
+              <p>
+                Pregunta a otros inversionistas o arrendadores en tu área. Así
+                encuentras gente de confianza.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- 4. ZILLOW -->
+      <section>
+        <div class="section-label">
+          <div class="section-emoji">🏠</div>
+          <div class="section-title">
+            Zillow<span>Cómo usarlo a tu favor</span>
+          </div>
+        </div>
+        <div class="zillow-table">
+          <div class="zt-row header">
+            <div class="zt-cell"></div>
+            <div class="zt-cell">🛒 Para Comprar</div>
+            <div class="zt-cell">📢 Para Vender</div>
+          </div>
+          <div class="zt-row">
+            <div class="zt-cell">Zillow</div>
+            <div class="zt-cell">
+              ❌ Evítalo — precios inflados y mucha competencia
+            </div>
+            <div class="zt-cell">
+              ✅ Úsalo — llegas a más compradores rápido
+            </div>
+          </div>
+          <div class="zt-row">
+            <div class="zt-cell">Lo Mejor</div>
+            <div class="zt-cell">✅ Ve directo al dueño y hazlo tu banco</div>
+            <div class="zt-cell">
+              ✅ Publica en Zillow + MLS para el mejor precio
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- CHECKLIST -->
+      <section>
+        <div class="section-label">
+          <div class="section-emoji">📋</div>
+          <div class="section-title">
+            Tu Lista<span>Marca cada paso antes de comprar</span>
+          </div>
+        </div>
+        <div class="checklist">
+          <div class="checklist-hdr">
+            <span>⭐</span>
+            <strong>CHECKLIST DE DOÑA FLIP</strong>
+          </div>
+          <div class="checklist-items">
+            <div class="check-item" onclick="this.classList.toggle('checked')">
+              <div class="check-box"></div>
+              <div class="check-label">
+                🧮 La renta cubre el pago de la hipoteca
+              </div>
+            </div>
+            <div class="check-item" onclick="this.classList.toggle('checked')">
+              <div class="check-box"></div>
+              <div class="check-label">
+                🔍 Revisé las rentas en Zillow para esa área
+              </div>
+            </div>
+            <div class="check-item" onclick="this.classList.toggle('checked')">
+              <div class="check-box"></div>
+              <div class="check-label">
+                🤝 Exploré comprarle directo al dueño (seller financing)
+              </div>
+            </div>
+            <div class="check-item" onclick="this.classList.toggle('checked')">
+              <div class="check-box"></div>
+              <div class="check-label">
+                🔨 Mi presupuesto: solo pisos, pintura, cocina y baño
+              </div>
+            </div>
+            <div class="check-item" onclick="this.classList.toggle('checked')">
+              <div class="check-box"></div>
+              <div class="check-label">
+                📋 Pedí presupuestos a varios trabajadores
+              </div>
+            </div>
+            <div class="check-item" onclick="this.classList.toggle('checked')">
+              <div class="check-box"></div>
+              <div class="check-label">
+                👷 Tengo un buen trabajador y lo mantengo ocupado
+              </div>
+            </div>
+            <div class="check-item" onclick="this.classList.toggle('checked')">
+              <div class="check-box"></div>
+              <div class="check-label">
+                🏠 Estoy comprando directo — no en Zillow
+              </div>
+            </div>
+            <div class="check-item" onclick="this.classList.toggle('checked')">
+              <div class="check-box"></div>
+              <div class="check-label">
+                🎯 Mi estrategia está clara: ¿rentar o voltear (flip)?
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-    <div class="two-col">
-      <div class="col-card yes">
-        <div class="col-hdr">✅ SÍ INVIERTE AQUÍ</div>
-        <ul>
-          <li><span class="li-icon">🪵</span> Pisos nuevos</li>
-          <li><span class="li-icon">🎨</span> Pintura fresca</li>
-          <li><span class="li-icon">🍳</span> Aparatos nuevos</li>
-          <li><span class="li-icon">🍽️</span> Cocina presentable</li>
-          <li><span class="li-icon">🚿</span> Baño limpio y bonito</li>
-          <li><span class="li-icon">🪟</span> Ventanas nuevas</li>
-        </ul>
-      </div>
-      <div class="col-card no">
-        <div class="col-hdr">❌ NO GASTES AQUÍ</div>
-        <ul>
-          <li><span class="li-icon">🏚️</span> Cambios en el exterior</li>
-          <li><span class="li-icon">🔧</span> Cambiar la estructura</li>
-          <li><span class="li-icon">💎</span> Lujos innecesarios</li>
-          <li><span class="li-icon">🌳</span> Jardín muy elaborado</li>
-          <li><span class="li-icon">🖼️</span> Decoración personalizada</li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
-  <hr class="divider">
-
-  <!-- 3. TRABAJADORES -->
-  <section>
-    <div class="section-label">
-      <div class="section-emoji">👷</div>
-      <div class="section-title">Trabajadores<span>Encuéntralos y cuídalos</span></div>
-    </div>
-    <div class="tip-grid">
-      <div class="tip-card">
-        <div class="tip-icon">📋</div>
-        <div class="tip-text">
-          <strong>Pide varios presupuestos</strong>
-          <p>Habla con varios trabajadores antes de contratar. Así conoces el precio real y nadie te cobra de más.</p>
-        </div>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">🤜</div>
-        <div class="tip-text">
-          <strong>¡No lo sueltes!</strong>
-          <p>Cuando encuentres un buen trabajador, mantenlo ocupado con tus proyectos. Los buenos son difíciles de encontrar.</p>
-        </div>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">💬</div>
-        <div class="tip-text">
-          <strong>El boca a boca es lo mejor</strong>
-          <p>Pregunta a otros inversionistas o arrendadores en tu área. Así encuentras gente de confianza.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- 4. ZILLOW -->
-  <section>
-    <div class="section-label">
-      <div class="section-emoji">🏠</div>
-      <div class="section-title">Zillow<span>Cómo usarlo a tu favor</span></div>
-    </div>
-    <div class="zillow-table">
-      <div class="zt-row header">
-        <div class="zt-cell"></div>
-        <div class="zt-cell">🛒 Para Comprar</div>
-        <div class="zt-cell">📢 Para Vender</div>
-      </div>
-      <div class="zt-row">
-        <div class="zt-cell">Zillow</div>
-        <div class="zt-cell">❌ Evítalo — precios inflados y mucha competencia</div>
-        <div class="zt-cell">✅ Úsalo — llegas a más compradores rápido</div>
-      </div>
-      <div class="zt-row">
-        <div class="zt-cell">Lo Mejor</div>
-        <div class="zt-cell">✅ Ve directo al dueño y hazlo tu banco</div>
-        <div class="zt-cell">✅ Publica en Zillow + MLS para el mejor precio</div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- CHECKLIST -->
-  <section>
-    <div class="section-label">
-      <div class="section-emoji">📋</div>
-      <div class="section-title">Tu Lista<span>Marca cada paso antes de comprar</span></div>
-    </div>
-    <div class="checklist">
-      <div class="checklist-hdr">
-        <span>⭐</span>
-        <strong>CHECKLIST DE DOÑA FLIP</strong>
-      </div>
-      <div class="checklist-items">
-        <div class="check-item" onclick="this.classList.toggle('checked')">
-          <div class="check-box"></div>
-          <div class="check-label">🧮 La renta cubre el pago de la hipoteca</div>
-        </div>
-        <div class="check-item" onclick="this.classList.toggle('checked')">
-          <div class="check-box"></div>
-          <div class="check-label">🔍 Revisé las rentas en Zillow para esa área</div>
-        </div>
-        <div class="check-item" onclick="this.classList.toggle('checked')">
-          <div class="check-box"></div>
-          <div class="check-label">🤝 Exploré comprarle directo al dueño (seller financing)</div>
-        </div>
-        <div class="check-item" onclick="this.classList.toggle('checked')">
-          <div class="check-box"></div>
-          <div class="check-label">🔨 Mi presupuesto: solo pisos, pintura, cocina y baño</div>
-        </div>
-        <div class="check-item" onclick="this.classList.toggle('checked')">
-          <div class="check-box"></div>
-          <div class="check-label">📋 Pedí presupuestos a varios trabajadores</div>
-        </div>
-        <div class="check-item" onclick="this.classList.toggle('checked')">
-          <div class="check-box"></div>
-          <div class="check-label">👷 Tengo un buen trabajador y lo mantengo ocupado</div>
-        </div>
-        <div class="check-item" onclick="this.classList.toggle('checked')">
-          <div class="check-box"></div>
-          <div class="check-label">🏠 Estoy comprando directo — no en Zillow</div>
-        </div>
-        <div class="check-item" onclick="this.classList.toggle('checked')">
-          <div class="check-box"></div>
-          <div class="check-label">🎯 Mi estrategia está clara: ¿rentar o voltear (flip)?</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="f-brand">⭐ DOÑA FLIP ⭐</div>
-  <p>dona-flip.myshopify.com</p>
-  <p style="margin-top:6px;">Guarda esta guía y úsala en cada negocio 🏠</p>
-</footer>
-
-</body>
+    <!-- FOOTER -->
+    <footer>
+      <div class="f-brand">⭐ DOÑA FLIP ⭐</div>
+      <p>dona-flip.myshopify.com</p>
+      <p style="margin-top: 6px">Guarda esta guía y úsala en cada negocio 🏠</p>
+    </footer>
+  </body>
 </html>
